@@ -58,7 +58,12 @@ namespace Reflection
                 ShowMessage("Beim Lesen von \"entries.json\" ist ein Fehler aufgetreten.");
             }        
         }
-        
+
+        private void ShowEntryInputPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EntryInputPage());
+        }
+
         private void ShowMessage(string message)
         {
             MessageBox.Show(message);
