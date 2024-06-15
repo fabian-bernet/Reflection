@@ -11,7 +11,7 @@
     <ScrollViewer>
         <StackPanel Margin="15">
             <TextBlock Text="Reflection" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,10"/>
-            <ListView x:Name="entriesListView">
+            <ListView x:Name="entriesListView" ItemsSource="Entries">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Eintrag" DisplayMemberBinding="{Binding Date}" Width="100"/>
