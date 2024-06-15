@@ -24,5 +24,11 @@ namespace Reflection
         {
             InitializeComponent();
         }
+
+        private void ShowMainPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage());
+            NavigationService.RemoveBackEntry();
+        }
     }
 }

@@ -9,6 +9,26 @@
       Title="EntryInputPage">
 
     <ScrollViewer>
-        
+        <StackPanel Margin="15">
+            <TextBlock Text="Eintrag erstellen" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,10"/>
+
+            <Label VerticalAlignment="Top" Margin="0,10">Was habe ich heute gemacht?</Label>
+            <TextBox x:Name="textBoxDone" TextWrapping="Wrap" AcceptsReturn="True" Width="400" MaxWidth="400" MinHeight="40" MaxLength="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
+
+            <Label VerticalAlignment="Top" Margin="0,10">Was habe ich heute gut gemacht?</Label>
+            <TextBox x:Name="textBoxDoneWell" TextWrapping="Wrap" AcceptsReturn="True" Width="400" MaxWidth="400" MinHeight="40" MaxLength="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
+
+            <Label VerticalAlignment="Top" Margin="0,10">Was habe ich heute nicht gut gemacht?</Label>
+            <TextBox x:Name="textBoxDoneBad" TextWrapping="Wrap" AcceptsReturn="True" Width="400" MaxWidth="400" MinHeight="40" MaxLength="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
+
+            <Label VerticalAlignment="Top" Margin="0,10">Was kann ich zukünftig verbessern?</Label>
+            <TextBox x:Name="textBoxImprovements" TextWrapping="Wrap" AcceptsReturn="True" Width="400" MaxWidth="400" MinHeight="40" MaxLength="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
+
+            <Label VerticalAlignment="Top" Margin="0,10">Wie zufrieden bin ich mit dem heutgen Tag?</Label>
+            <Image Source="./Resources/Images/starscale.png" Width="400" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Slider x:Name="sliderStarScale" Value="1" Minimum="1" Maximum="3" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" Width="400" MaxWidth="400" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
+
+            <Button Content="Abbrechen" Click="ShowMainPage" IsCancel="True" Width="400" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+        </StackPanel>
     </ScrollViewer>
 </Page>

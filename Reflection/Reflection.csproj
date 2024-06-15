@@ -10,10 +10,18 @@
 
   <ItemGroup>
     <None Remove="Resources\Data\entries.json" />
+    <None Remove="Resources\Images\reflection.png" />
+    <None Remove="Resources\Images\starscale.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\Data\entries.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\reflection.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\starscale.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
