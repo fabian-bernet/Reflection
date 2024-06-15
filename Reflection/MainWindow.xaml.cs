@@ -19,6 +19,7 @@ namespace Reflection
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.NavigationService.Navigate(new MainPage());
         }
     }
 }
