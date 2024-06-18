@@ -42,6 +42,7 @@ namespace Reflection
             if (entriesFromJsonFile is not null)
             {
                 this.Entries = entriesFromJsonFile.OrderByDescending(entry => entry.Date).ToList();
+                entriesListView.ItemsSource = Entries;
             }
             else
             {
