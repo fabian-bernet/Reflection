@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Newtonsoft.Json;
 
 namespace Reflection
@@ -30,6 +19,7 @@ namespace Reflection
             InitializeComponent();
             DataContext = this;
             LoadEntries();
+            if (IsEntryForTodayExistent()) DisableCreateEntryButton();
         }
 
         private void LoadEntries()
@@ -59,10 +49,27 @@ namespace Reflection
                 ShowMessage("Beim Lesen von \"entries.json\" ist ein Fehler aufgetreten.");
             }        
         }
-        
+
+        private void ShowEntryInputPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EntryInputPage());
+        }
+
         private void ShowMessage(string message)
         {
             MessageBox.Show(message);
+        }
+
+        private bool IsEntryForTodayExistent()
+        {
+            string date = DateOnly.FromDateTime(DateTime.Now).ToString(CultureInfo.CurrentCulture);
+            return Entries.Any(entry => entry.Date == date);
+        }
+
+        private void DisableCreateEntryButton()
+        {
+            buttonCreateEntry.IsEnabled = false;
+            buttonCreateEntry.ToolTip = "Der heutige Eintrag ist bereits erfasst.";
         }
     }
 }

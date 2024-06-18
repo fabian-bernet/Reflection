@@ -11,6 +11,7 @@
     <ScrollViewer>
         <StackPanel Margin="15">
             <TextBlock Text="Reflection" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,10"/>
+            <Button x:Name="buttonCreateEntry" ToolTipService.ShowOnDisabled="True" ToolTipService.InitialShowDelay="100" Content="Eintrag erstellen" Click="ShowEntryInputPage" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10"/>
             <ListView x:Name="entriesListView">
                 <ListView.View>
                     <GridView>
