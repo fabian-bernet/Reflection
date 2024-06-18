@@ -24,11 +24,14 @@
             <Label VerticalAlignment="Top" Margin="0,10">Was kann ich zukünftig verbessern?</Label>
             <TextBox x:Name="textBoxImprovements" TextWrapping="Wrap" AcceptsReturn="True" Width="400" MaxWidth="400" MinHeight="40" MaxLength="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
 
-            <Label VerticalAlignment="Top" Margin="0,10">Wie zufrieden bin ich mit dem heutgen Tag?</Label>
+            <Label VerticalAlignment="Top" Margin="0,10">Wie zufrieden bin ich mit dem heutigen Tag?</Label>
             <Image Source="./Resources/Images/starscale.png" Width="400" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Slider x:Name="sliderStarScale" Value="1" Minimum="1" Maximum="3" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" Width="400" MaxWidth="400" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
 
-            <Button Content="Abbrechen" Click="ShowMainPage" IsCancel="True" Width="400" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+            <StackPanel Orientation="Horizontal" Width="400" HorizontalAlignment="Left" Margin="0,10,0,0" >
+                <Button Content="Abbrechen" Click="ShowMainPage" IsCancel="True" Width="192" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,15,0"/>
+                <Button Content="Eintrag speichern" Click="SaveEntry" IsDefault="True" Width="192" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </Page>
