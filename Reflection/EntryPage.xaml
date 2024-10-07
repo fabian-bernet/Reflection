@@ -1,4 +1,4 @@
-﻿<Page x:Class="Reflection.EntryInputPage"
+﻿<Page x:Class="Reflection.EntryPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Reflection"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EntryInputPage">
+      Title="EntryPage">
 
     <ScrollViewer>
         <StackPanel Margin="15">
@@ -29,8 +29,8 @@
             <Slider x:Name="sliderStarScale" Value="1" Minimum="1" Maximum="3" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" Width="400" MaxWidth="400" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="3"/>
 
             <StackPanel Orientation="Horizontal" Width="400" HorizontalAlignment="Left" Margin="0,10,0,0" >
-                <Button Content="Abbrechen" Click="ShowMainPage" IsCancel="True" Width="192" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,15,0"/>
-                <Button Content="Eintrag speichern" Click="SaveEntry" IsDefault="True" Width="192" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Button x:Name="buttonCancel" Content="Abbrechen" Click="ShowMainPage" IsCancel="True" Width="192" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,15,0"/>
+                <Button x:Name="buttonSaveEntry" Content="Speichern" Click="SaveEntry" IsDefault="True" Width="192" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

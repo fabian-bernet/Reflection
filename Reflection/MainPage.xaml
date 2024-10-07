@@ -11,8 +11,13 @@
     <ScrollViewer>
         <StackPanel Margin="15">
             <TextBlock Text="Reflection" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,10"/>
-            <Button x:Name="buttonCreateEntry" ToolTipService.ShowOnDisabled="True" ToolTipService.InitialShowDelay="100" Content="Eintrag erstellen" Click="ShowEntryInputPage" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10"/>
-            <ListView x:Name="entriesListView">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10" >
+                <Button x:Name="buttonCreateEntry" ToolTipService.ShowOnDisabled="True" ToolTipService.InitialShowDelay="100" Content="Eintrag erstellen" Click="ShowEntryPage" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Button x:Name="buttonShowEntry" Click="ShowEntryPageWithEntry" IsEnabled="False" VerticalAlignment="Top" Width="50" Height="30" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Image Source="./Resources/Images/eye.png" Height="20"/>
+                </Button>
+            </StackPanel>
+            <ListView x:Name="entriesListView" SelectionChanged="CheckSelectEntry" MouseDoubleClick="ShowEntryPageWithEntry">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Eintrag" DisplayMemberBinding="{Binding Date}" Width="100"/>

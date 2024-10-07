@@ -6,13 +6,20 @@ using System.IO;
 namespace Reflection
 {
     /// <summary>
-    /// Interaktionslogik für EntryInputPage.xaml
+    /// Interaktionslogik für EntryPage.xaml
     /// </summary>
-    public partial class EntryInputPage : Page
+    public partial class EntryPage : Page
     {
-        public EntryInputPage()
+        public EntryPage()
         {
             InitializeComponent();
+        }
+
+        public EntryPage(Entry entry)
+        {
+            InitializeComponent();
+            FillInteractionFields(entry);
+            DisableEditing();
         }
 
         private void SaveEntry(object sender, RoutedEventArgs e)
@@ -48,6 +55,25 @@ namespace Reflection
             }
 
             ShowMainPage(sender, e);
+        }
+
+        private void FillInteractionFields(Entry entry)
+        {
+            textBoxDone.Text = entry.DoneToday;
+            textBoxDoneWell.Text = entry.DoneWell;
+            textBoxDoneBad.Text = entry.DoneBad;
+            textBoxImprovements.Text = entry.Improvements;
+            sliderStarScale.Value = entry.StarScale;
+        }
+        
+        private void DisableEditing()
+        {
+            textBoxDone.IsEnabled = false;
+            textBoxDoneWell.IsEnabled = false;
+            textBoxDoneBad.IsEnabled = false;
+            textBoxImprovements.IsEnabled = false;
+            sliderStarScale.IsEnabled = false;
+            buttonSaveEntry.IsEnabled = false;
         }
 
         private void ShowMainPage(object sender, RoutedEventArgs e)

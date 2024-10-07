@@ -19,7 +19,7 @@ namespace Reflection
             InitializeComponent();
             DataContext = this;
             LoadEntries();
-            if (IsEntryForTodayExistent()) DisableCreateEntryButton();
+            CheckTodaysEntry();
         }
 
         private void LoadEntries()
@@ -41,18 +41,30 @@ namespace Reflection
 
             if (entriesFromJsonFile is not null)
             {
-                this.Entries = entriesFromJsonFile.OrderByDescending(entry => entry.Date).ToList();
+                this.Entries = entriesFromJsonFile.OrderByDescending(entry => DateTime.Parse(entry.Date)).ToList();
                 entriesListView.ItemsSource = Entries;
             }
             else
             {
                 ShowMessage("Beim Lesen von \"entries.json\" ist ein Fehler aufgetreten.");
-            }        
+            }
         }
 
-        private void ShowEntryInputPage(object sender, RoutedEventArgs e)
+        private void CheckSelectEntry(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(new EntryInputPage());
+            Entry selectedEntry = (Entry) entriesListView.SelectedItem;
+            buttonShowEntry.IsEnabled = (selectedEntry != null);
+        }
+
+        private void ShowEntryPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EntryPage());
+        }
+
+        private void ShowEntryPageWithEntry(object sender, RoutedEventArgs e)
+        {
+            Entry selectedEntry = (Entry) entriesListView.SelectedItem;
+            NavigationService.Navigate(new EntryPage(selectedEntry));
         }
 
         private void ShowMessage(string message)
@@ -60,16 +72,14 @@ namespace Reflection
             MessageBox.Show(message);
         }
 
-        private bool IsEntryForTodayExistent()
+        private void CheckTodaysEntry()
         {
             string date = DateOnly.FromDateTime(DateTime.Now).ToString(CultureInfo.CurrentCulture);
-            return Entries.Any(entry => entry.Date == date);
-        }
-
-        private void DisableCreateEntryButton()
-        {
-            buttonCreateEntry.IsEnabled = false;
-            buttonCreateEntry.ToolTip = "Der heutige Eintrag ist bereits erfasst.";
+            if (Entries.Any(entry => entry.Date == date))
+            {
+                buttonCreateEntry.IsEnabled = false;
+                buttonCreateEntry.ToolTip = "Der heutige Eintrag ist bereits erfasst.";
+            }
         }
     }
 }
